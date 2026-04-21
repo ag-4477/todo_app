@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // dueDateを「12月30日(月)」形式で表示するために使う
+import 'package:intl/intl.dart';
 import '../models/todo.dart';
 
 class TodoCard extends StatelessWidget {
-  final Todo todo; // このカードに表示するデータ（title / detail / dueDate を使って表示しよう）
-  final VoidCallback? onToggle; // チェックボタンを押したときの処理（onPressedに渡して呼ばれるようにしよう）
-  final VoidCallback onTap; // カード全体がタップされたときの処理（onTapに渡して呼ばれるようにしよう）
+  final Todo todo;
+  final VoidCallback? onToggle;
+  final VoidCallback onTap; 
   const TodoCard({
     super.key,
     required this.todo,
     this.onToggle,
-    required this.onTap, // チェックボタンを押したときの処理も引数として受け取るようにしよう（requiredは必須であることを示すキーワードです）
+    required this.onTap, 
   });
 
   @override
@@ -27,7 +27,6 @@ class TodoCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // チェックボタン：isCompletedでアイコンを出し分け、押したらonToggleが呼ばれるようにしよう
             IconButton(
               iconSize: 32,
               icon: Icon(
@@ -39,7 +38,6 @@ class TodoCard extends StatelessWidget {
               onPressed: onToggle,
             ),
             const SizedBox(width: 8),
-            // テキスト群：横に伸ばしたいのでExpandedで包もう
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +62,6 @@ class TodoCard extends StatelessWidget {
                   ),
                   Text(
                     DateFormat('M月d日(E)', 'ja').format(todo.dueDate),
-                    // dueDateを日本語表記に変換して表示しよう
                     style: TextStyle(
                       color: Colors.white70,
                       fontSize: 16,

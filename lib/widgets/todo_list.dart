@@ -8,7 +8,7 @@ import '../screens/add_todo_screen.dart'; // 追加画面のインポート
 class TodoList extends StatefulWidget {
   const TodoList({
     super.key,
-    required this.todoService, // ❗️ 引数としてtodoServiceを受け取るようにしましょう（必須であることを示す required を忘れずに！）
+    required this.todoService,
   });
 
   final TodoService todoService;
@@ -19,14 +19,11 @@ class TodoList extends StatefulWidget {
 
 class TodoListState extends State<TodoList> {
   List<Todo> _todos = [];
-  // ❗️ 読み込み中であることを示すフラグ _isLoading を変数として定義しましょう
-  // 画面表示時は読み込み中であることを示すために true を代入しましょう
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    // ❗️ Todoリストのデータを読み込むため、TodoListState で定義した _loadTodos() を呼び出しましょう
     _loadTodos();
   }
 
@@ -65,7 +62,6 @@ class TodoListState extends State<TodoList> {
   Widget build(BuildContext context) {
     if (_isLoading) { // 読込中はローディングインジケーターを表示
       return const Center(child:
-      // ❗️ CircularProgressIndicator を表示してみましょう
       CircularProgressIndicator()
       );
     }

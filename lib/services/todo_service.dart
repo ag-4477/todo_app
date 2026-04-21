@@ -1,11 +1,11 @@
-import 'dart:convert'; // JSONデータの変換用
-import 'package:shared_preferences/shared_preferences.dart'; // データ保存用
-import '../models/todo.dart'; // 作成したTodoクラスを使用
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart'; 
+import '../models/todo.dart';
 import 'package:flutter/material.dart';
 
 class TodoService {
-  static const String _storageKey = 'todos'; // 保存時のキー名
-  final SharedPreferences _prefs; // データ保存の仕組み
+  static const String _storageKey = 'todos';
+  final SharedPreferences _prefs;
 
   TodoService(this._prefs);
 
@@ -20,12 +20,11 @@ class TodoService {
     // JSON文字列をDartのオブジェクトに変換
     final List<dynamic> decoded = jsonDecode(todosJson);
 
-    // 各データをTodoオブジェクトに変換してリストにする
     return decoded
         .map((json) => Todo(
               id: json['id'],
               title: json['title'],
-              detail: json['detail'] ?? '', // detailがない場合は空文字
+              detail: json['detail'] ?? '', 
               dueDate: DateTime.parse(json['dueDate'] ??
                   DateTime.now().toIso8601String()), // dueDateがない場合は現在日時
               isCompleted: json['isCompleted'],
@@ -39,7 +38,6 @@ class TodoService {
     // TodoオブジェクトをJSONに変換できる形に変換
     final List<Map<String, dynamic>> jsonData = todos
         .map((todo) => {
-              // ❗️ getで参照しているキーを参考にTodoJsonを作ってみましょう
               'id': todo.id,
               'title': todo.title,
               'detail': todo.detail,
@@ -53,7 +51,6 @@ class TodoService {
     final String encoded = jsonEncode(jsonData);
     
     // 変換した文字列を保存
-    // ❗️ SharedPreferencesを使ってJSON文字列を保存してみましょう
     await _prefs.setString(_storageKey, encoded);
   }
 }

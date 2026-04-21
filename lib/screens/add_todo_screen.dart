@@ -97,7 +97,6 @@ class AddTodoScreenState extends State<AddTodoScreen> {
               ),
 
               const SizedBox(height: 16), // 余白
-              // ❗️ タイトル入力フィールドを参考に、TextFormFieldを使用して詳細入力フィールドを実装してみましょう(ただ、以下のコメントの部分で仕様が異なります)
               /**
                *  1. ラベルとヒントテキストの文言
                *  2. 三行を超えると入力できなくなる
@@ -210,7 +209,6 @@ class AddTodoScreenState extends State<AddTodoScreen> {
                   // テキストの色を変更
                   style: TextStyle(
                     color: _isFormValid ? Colors.white : Colors.grey.shade700,
-                    // ❗️ 活性状態は白、非活性状態はグレーにテキストの色を設定してみましょう
                     fontSize: 18,
                   ),
                 ),
@@ -235,7 +233,6 @@ class AddTodoScreenState extends State<AddTodoScreen> {
       colorBackground: _selectedColor.value,
     );
 
-    // ❗️ 追加：リストを一度読み込んで、新しいタスクを追加して保存する
     final currentTodos = await widget.todoService.getTodos();
     
     if (widget.todo == null) {

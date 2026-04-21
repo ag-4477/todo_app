@@ -29,11 +29,11 @@ class Todo {
   }) {
     return Todo(
       id: id,                                       // IDは変更しない
-      title: title ?? this.title,                                        // ❗️ 新しいタイトルまたは元のタイトルを設定してみましょう
-      detail: detail ?? this.detail,                                     // ❗️ 新しい詳細または元の詳細を設定してみましょう
-      dueDate: dueDate ?? this.dueDate,                                  // ❗️ 新しい期日または元の期日を設定してみましょう
-      isCompleted: isCompleted ?? this.isCompleted,                      // ❗️ 新しい状態または元の状態を設定してみましょう
-      colorBackground: colorBackground != null ? colorBackground.value : this.colorBackground,         // ❗️ 新しい背景色または元の背景色を設定してみましょう
+      title: title ?? this.title,                                        
+      detail: detail ?? this.detail,                                   
+      dueDate: dueDate ?? this.dueDate,                                  
+      isCompleted: isCompleted ?? this.isCompleted,                      
+      colorBackground: colorBackground != null ? colorBackground.value : this.colorBackground,         
     );
   }
   

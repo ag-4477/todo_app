@@ -21,9 +21,7 @@ class ListScreenState extends State<ListScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('TODOリスト')),
       body: TodoList(
-        // ❗️ 作成した UniqueKey を引数として渡してみましょう
         key: _todoListKey,
-        // ❗️ 続いて todoService を引数として渡してみましょう（widget.todoService は引数として受け取った todoService を参照するためのキーワードです）
         todoService: widget.todoService,
       ),
       floatingActionButton: FloatingActionButton(
@@ -33,7 +31,7 @@ class ListScreenState extends State<ListScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) => AddTodoScreen(
-                      todoService: widget.todoService, // ❗️ ここでも AddTodoScreen でTodoが追加されたら状態を更新するため、todoService を引数として渡してみましょう
+                      todoService: widget.todoService,
                     )),
           );
 
