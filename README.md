@@ -1,17 +1,12 @@
 # todo_app
 
-A new Flutter project.
+1dayハッカソンにて作成したtodoアプリです
 
-## Getting Started
+## 仕様
 
-This project is a starting point for a Flutter application.
+タスクの追加、削除、編集が行えます。
+タスクにはタイトル、詳細、期限、色を指定できます。
 
-A few resources to get you started if this is your first Flutter project:
+### テストページ
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://ag-4477.github.io/todo_app/
